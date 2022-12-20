@@ -1,0 +1,30 @@
+"customizeUI.stylesheet": {
+		// ? "the glow"
+		":root": "--master-active-color:rgb(0, 232, 198);--master-other-color:hsla(171, 65%, 33%, 1);--master-active-border-width:1px;--text-shadow:0 0 1px white, 0 0 1px black, 0 0 1px white, 0 0 1px black, 0 0 6px currentColor, 0 0 8px black, 0 0 24px currentColor !important;--light-glow:0 0 1px white, 0 0 1px black,0 0 24px currentColor !important;",
+
+		// ? tabs
+		".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab:not(.active):not(:hover)": "filter: none;",
+
+		//_ dark themes only
+		// ? inactive editor
+		".vs-dark .editor-group-container span[class*='mtk']:not([class*='ced'])": "filter:saturate(2);text-shadow: var(--text-shadow);",
+		// ? TextEditorDecorationType
+		".vs-dark .editor-group-container span[class*='mtkb']": "filter:saturate(2);text-shadow: var(--text-shadow);",
+		// ? active editor
+		".vs-dark .editor-group-container.active span[class*='mtk']:not([class*='ced'])": "filter:saturate(3);text-shadow: var(--text-shadow);",
+		// ? new active border shit
+		".vs-dark .editor-group-container": "--border-color: var(--master-other-color)",
+		".vs-dark .editor-group-container.active":"--border-color: var(--master-active-color)",
+		".vs-dark .editor-group-container .title.tabs::after": "content:'';display:block;position:absolute;inset: 0 0 0 0;border-bottom: var(--master-active-border-width) dashed var(--border-color);pointer-events: none;",
+		".vs-dark .editor-group-container .tab.active": "border-width: var(--master-active-border-width) !important;border-style: dashed !important;border-color: var(--border-color) !important;border-bottom: 10px solid black !important;box-sizing: content-box !important;z-index: 10;--tab-dirty-border-top-color: var(--border-color) !important;",
+		".vs-dark .editor-group-container .tab.active > .tab-border-top-container": "height: 0 !important;",
+		".vs-dark .editor-group-container .editor-container .editor-instance .monaco-editor::after": "content: '';position:absolute;display: block;inset: 0 0 0 0;border: var(--master-active-border-width) dashed var(--border-color);border-top: none !important;pointer-events: none;z-index: 9;",
+		// ? TextEditorDecorationType
+		".vs-dark .editor-group-container.active span[class*='mtkb']": "filter:saturate(2);text-shadow: var(--text-shadow);",
+		//_ end dark themes only
+
+		//_ light themes only
+		".vs:not(.vs-dark) .editor-group-container span[class*='mtk']:not([class*='ced']), .vs:not(.vs-dark) .editor-group-container .monaco-editor .line-numbers.active-line-number": "filter:saturate(2) contrast(2);text-shadow: var(--light-glow);",
+		".vs:not(.vs-dark) .editor-group-container.active span[class*='mtk']:not([class*='ced']), .vs:not(.vs-dark) .editor-group-container.active .monaco-editor .line-numbers.active-line-number": "filter:saturate(2) contrast(2);text-shadow: var(--light-glow);"
+		//_ end light themes only
+	},

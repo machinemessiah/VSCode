@@ -1,0 +1,40 @@
+/*:root {
+    --master-active-color:rgb(0, 232, 198);--master-other-color:hsla(171, 65%, 33%, 1);--master-active-border-width:1px;
+}
+.editor-group-container {
+	--border-color: var(--master-other-color);
+}
+.editor-group-container.active {
+	--border-color: var(--master-active-color);
+}
+.editor-group-container .tab.active {
+    border-width: var(--master-active-border-width) !important;
+    border-style: dashed !important;
+    border-color: var(--border-color) !important;
+    border-bottom: 10px solid black !important;
+    box-sizing: content-box !important;
+    z-index: 10;
+    --tab-dirty-border-top-color: var(--border-color) !important;
+}
+
+.editor-group-container .tab.active > .tab-border-top-container {
+    height: 0 !important;
+}
+.editor-group-container .title.tabs::after {
+    content: '';
+    display:block;
+    position:absolute;
+    inset: 0 0 0 0;
+    border-bottom: var(--master-active-border-width) dashed var(--border-color);
+    pointer-events: none;
+}
+.editor-group-container .editor-container .editor-instance .monaco-editor::after {
+    content: '';
+    position:absolute;
+    display: block;
+    inset: 0 0 0 0;
+    border: var(--master-active-border-width) dashed var(--border-color);
+    border-top: none !important;
+    pointer-events: none;
+    z-index: 9;
+}*/

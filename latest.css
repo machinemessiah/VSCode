@@ -1,0 +1,348 @@
+:root {
+	--bc-padding-tb: 0px;
+	--bc-padding-lr: 5px;
+	--bc-radius: 3px;
+	--m1_inactive-editor-opacity: 0.75;
+	--m1_inactive-tab-opacity: 0.5;
+	--m1_inactive-tab-opacity: 1;
+	/* + change for new active tab solution */
+	--m1_hover-editor-opacity: 0.95;
+}
+
+:root body>div[role='application']:not(.vs-dark) {
+	--filter: saturate(1.25);
+	--filter-a: saturate(1.25);
+	--filter-x: brightness(0.9);
+	--filter-x: none;
+	--filter-terminal-extra: saturate(1.5);
+	--text-shadow: none;
+}
+
+:root body>div[role='application'].vs-dark {
+	--ts-dark: rgba(0, 0, 0, 1);
+	--text-shadow-a: 0 0 0.5px var(--ts-dark), 0 0 1px currentColor, 0 0 5px var(--ts-dark), 0 0 10px currentColor;
+	--scale-a: 1;
+	--scale-x: 0.99;
+	--scale-h: 1;
+	--filter: saturate(1.5);
+	--filter-a: saturate(2);
+	--filter-x: none;
+	/*saturate(0.99);*/
+	--filter-h: saturate(1.75);
+
+	/*--filter-x: hue-rotate(180deg);*/
+	--filter-terminal-extra: brightness(1.2);
+	--text-shadow-a: 0 0 1px black, 0 0 1px black, 0 0 6px currentColor, 0 0 9px black, 0 0 12px currentColor;
+
+	--default-background-color: rgb(19, 19, 19);
+}
+
+.split-view-view.visible {
+	background: var(--default-background-color);
+}
+
+.editor-group-container span[class*='mtk']:not([class*='ced-1-TextEditorDecorationType']),
+.editor-group-container span[class*='mtkb'] {
+	/*filter: var(--filter-a);*/
+	text-shadow: var(--text-shadow-a);
+}
+
+#workbench\\.parts\\.editor .split-view-container>.split-view-view {
+	transition: filter 125ms linear;
+}
+
+div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::after {
+	content: "";
+	display: block;
+	z-index: 999;
+	inset: 0;
+	position: absolute;
+	outline: 1px solid var(--default-background-color);
+	outline-offset: -1px;
+	pointer-events: none;
+}
+
+.tabs-container {
+	--active-sticky-l: 0;
+}
+
+.editor-group-container {
+	transition: all 125ms linear;
+}
+
+.editor-group-container.active {
+	opacity: 1;
+	/*filter: none;*/
+	transform: none;
+	--filter: var(--filter-a);
+}
+
+.editor-group-container:not(.active) {
+	opacity: var(--m1_inactive-editor-opacity);
+	transform: scale(var(--scale-x));
+	/*filter: none;*/
+	--filter: var(--filter-x);
+}
+
+.editor-group-container:not(.active):hover {
+	/*filter: none;*/
+	opacity: 1;
+	transform: none;
+	--filter: var(--filter-h);
+}
+
+.editor-group-container::after {
+	content: "";
+	position: absolute;
+	inset: 0 0 0 0;
+	background: transparent;
+	z-index: 100;
+	pointer-events: none;
+	backdrop-filter: var(--filter);
+}
+
+.title.tabs.show-file-icons.title-border-bottom {
+	background: var(--title-border-bottom-color) !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title>.tabs-and-actions-container.tabs-border-bottom {
+	/* internal variable name change as of vscode 1.7.4 */
+	/*--m1-tab-outline-color: var(--vscode-tab-activeBorderTop);*/
+	--m1-tab-outline-color: var(--vscode-tab-activeBorder);
+	--m1-tab-outline-style: solid;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title>.tabs-and-actions-container.tabs-border-bottom:has(.tab.active.dirty-border-top) {
+	--m1-tab-outline-color: var(--vscode-tab-activeModifiedBorder);
+	--m1-tab-outline-style: dashed;
+}
+
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title.title-border-bottom::after {
+	display: none !important;
+}
+
+.tab {
+	--tab-border-bottom-color: rgba(0, 0, 0, 0) !important;
+	--tab-border-top-color: rgba(0, 0, 0, 0) !important;
+}
+
+.tab.active {
+	position: sticky !important;
+	z-index: 100;
+	flex-basis: 0;
+	flex-grow: 0;
+	left: var(--active-sticky-l) !important;
+	right: 0;
+	--tab-border-bottom-color: rgba(0, 0, 0, 0) !important;
+	--tab-border-top-color: rgba(0, 0, 0, 0) !important;
+}
+
+.tab.sticky-shrink~.tab.active {
+	--sticky-step: 80px;
+}
+
+.tab.sticky-compact~.tab.active {
+	--sticky-step: 38px;
+}
+
+.tab.sticky-normal~.tab.active {
+	--sticky-step: 0;
+}
+
+.tab[class*="sticky-"]~.tab.active {
+	--active-sticky-l: calc(var(--sticky-step) * 1);
+}
+
+.tab[class*="sticky-"]+.tab[class*="sticky-"]~.tab.active {
+	--active-sticky-l: calc(var(--sticky-step) * 2)
+}
+
+.tab[class*="sticky-"]+.tab[class*="sticky-"]+.tab[class*="sticky-"]~.tab.active {
+	--active-sticky-l: calc(var(--sticky-step) * 3)
+}
+
+.tab[class*="sticky-"]+.tab[class*="sticky-"]+.tab[class*="sticky-"]+.tab[class*="sticky-"]~.tab.active {
+	--active-sticky-l: calc(var(--sticky-step) * 4)
+}
+
+.tab[class*="sticky-"]+.tab[class*="sticky-"]+.tab[class*="sticky-"]+.tab[class*="sticky-"]+.tab[class*="sticky-"]~.tab.active {
+	--active-sticky-l: calc(var(--sticky-step) * 5)
+}
+
+.codicon-pinned:before {
+	content: '\EA83' !important;
+	font-family: 'pi-material-icons' !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active {
+	/*outline: 1px var(--m1-tab-outline-style) var(--m1-tab-outline-color) !important;*/
+	outline-offset: 0 !important;
+	border-right: none !important;
+	border-top: none !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active:hover {
+	background-color: var(--vscode-tab-activeBackground) !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active.dirty-border-top {
+	--m1-tab-outline-style: dashed;
+	border-top: none !important;
+
+	/*outline: 1px dashed var(--m1-tab-outline-color) !important;*/
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.dirty-border-top>.tab-border-top-container {
+	z-index: 6;
+	top: -1px;
+	height: 0px;
+	background-color: transparent !important;
+	/*outline: 1px var(--m1-tab-outline-style) var(--m1-tab-outline-color);*/
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab:not(.active, .sticky) {
+	opacity: var(--m1_inactive-tab-opacity);
+}
+
+/* + active tab border effect (border on ALL tabs via ::after) */
+/* @ active tab editor var assignment */
+.monaco-workbench .part.editor>.content .editor-group-container.active {
+	--m1-border-color: var(--vscode-tab-activeBorderTop);
+	--m1-border-color: var(--vscode-merge-incomingHeaderBackground);
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container:is(.inactive, :not(.active)) {
+	--m1-border-color: var(--vscode-inputOption-hoverBackground);
+}
+
+/* @ tabs-and-actions-container::before (for when there is empty space) */
+/* _ same border-bottom as normal tabs */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-and-actions-container::before {
+	content: "";
+	position: absolute;
+	display: block;
+	pointer-events: none;
+	inset: 0 0 1px 0;
+	border-bottom: 1px solid var(--m1-border-color);
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title>.tabs-and-actions-container.tabs-border-bottom::after {
+	height: 1px !important;
+	/*background: var(--m1-tab-outline-color) !important;*/
+	bottom: 0px;
+	left: 1px;
+	right: 1px;
+	width: auto;
+}
+
+/* @ all tab::after */
+/* _ border bottom only, semi-transparent background */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab::after {
+	border: 1px solid var(--m1-border-color) !important;
+	border-width: 0 0 1px 0 !important;
+	background: rgba(0, 0, 0, 0.25);
+	box-sizing: content-box !important;
+	content: '';
+	position: absolute;
+	/* = -1px side inset for filling gap created by default right border */
+	inset: 1px -1px 1px -1px;
+	z-index: 1;
+	pointer-events: none;
+}
+
+/* @ regular tab hover */
+/* _ no background */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab:hover::after {
+	background: none;
+}
+
+/* @ active tab::after */
+/* _ border top, right, left, no background */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active::after {
+	border: 1px solid var(--m1-border-color) !important;
+	border-bottom-width: 0px !important;
+	inset: 1px 0px 1px 1px;
+	background: none;
+}
+
+/* @ editor::before border */
+.monaco-workbench .part.editor>.content .editor-group-container>.editor-container {
+	position: relative;
+}
+
+/*.monaco-workbench .part.editor>.content .editor-group-container>.editor-container::before {
+	content: "";
+	position: absolute;
+	display: block;
+	pointer-events: none;
+	inset: -2px 0px -1px 0px;
+	border: 0px solid var(--m1-border-color);
+	border-top-width: 0;
+	z-index: 12;
+	box-sizing: border-box;
+	box-shadow: inset 0 -1px 0px 1px var(--m1-border-color);
+}*/
+/*.monaco-workbench .part.editor>.content .editor-group-container>.editor-container::before {
+	content: "";
+	position: absolute;
+	display: block;
+	pointer-events: none;
+	inset: -2px 0px -1px 0px;
+	border: 1px solid var(--m1-border-color) !important;
+	border-top-width: 0 !important;
+	z-index: 12;
+	box-sizing: border-box;
+	box-shadow: inset 0px -1px 0px 1px var(--m1-border-color);
+}*/
+.monaco-workbench .part.editor>.content .editor-group-container>.editor-container::before {
+	content: "";
+	position: absolute;
+	display: block;
+	pointer-events: none;
+	inset: -2px 1px 0px 1px;
+	border: none !important;
+	border-top-width: 0 !important;
+	z-index: 12;
+	box-sizing: border-box;
+	box-shadow: inset 0px -1px 0px 1px var(--m1-border-color);
+}
+
+/* = expand width for pinned tab if it's also the active tab */
+/* TODO what do we do about pinned tabs that follow? */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.sticky-shrink.active,
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-shrink.sticky-shrink.active {
+	min-width: fit-content;
+	width: fit-content;
+	max-width: unset;
+	z-index: 9;
+}
+
+/* ! settings menu stuff */
+.settings-editor>.settings-body .settings-toc-wrapper {
+	padding-left: 0;
+}
+
+.settings-toc-wrapper>.monaco-list .monaco-list-rows {
+	border: 10px solid transparent;
+}
+
+/* ! temp terminal shit */
+.monaco-workbench .editor-instance .xterm-viewport,
+.monaco-workbench .pane-body.integrated-terminal .xterm-viewport {
+	-webkit-background-clip: unset;
+}
+
+.monaco-workbench .editor-instance .terminal-wrapper>div,
+.monaco-workbench .pane-body.integrated-terminal .terminal-wrapper>div {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.monaco-workbench .editor-instance .xterm,
+.monaco-workbench .pane-body.integrated-terminal .xterm {
+	position: relative;
+}

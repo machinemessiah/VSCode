@@ -1,0 +1,15 @@
+div#workbench\.parts\.panel {
+    box-sizing: content-box !important;
+    border: 10px solid rgba(0,0,0,0.5) !important;
+    width: calc(100% - 20px) !important;
+    height: calc(100% - 20px) !important;
+}
+
+div#workbench\.parts\.panel .content {
+    width: 100% !important;
+    height: calc(100% - 35px) !important;
+}
+
+:root {
+    --separator-border: #34352f;
+}

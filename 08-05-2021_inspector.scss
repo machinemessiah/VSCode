@@ -1,0 +1,87 @@
+/*VSCODE*/
+div#workbench\.parts\.activitybar {
+    background: radial-gradient(circle at bottom left, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+
+    border-right: 1px solid rgba(0,0,0,1);
+}
+div#workbench\.parts\.activitybar::after {
+    background: rgba(3,79,186,0.7);
+    content: '';
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* z-index: -1; */
+    backdrop-filter: brightness(0.5);
+    pointer-events: none;
+}
+
+div#workbench\.parts\.titlebar {
+    background: linear-gradient(130deg, rgba(2,226,226,1) 50%, rgba(3,79,186,1) 100%);
+    /*filter: invert(1);*/
+}
+
+footer#workbench\.parts\.statusbar {
+    background: linear-gradient(130deg, #02e2e2 50%, rgba(3,79,186,1) 100%);
+}
+
+.monaco-list-row {
+}
+
+.pane-header {
+    background-color: #0004 !important;
+}
+
+.pane-header.expanded {
+    background-color: #0005 !important;box-shadow: 0 6px 15px 1px rgba(0,0,0,0.5);
+}
+
+.monaco-list-row:hover:not(.selected):not(.focused) {background:#0002 !important;}
+
+div#workbench\.parts\.sidebar {
+    border-right: 1px solid rgba(0,0,0,1);
+}
+
+div#workbench\.parts\.sidebar > .composite.title {
+    background: #0007;position: relative;
+}
+div#workbench\.parts\.sidebar > .composite.title::before {
+    background: #00000094;content:'';display:block;top:0;left:0;right:0;bottom:0;position:absolute;z-index: -1;
+}
+
+div#workbench\.parts\.sidebar > .composite.title h2 {
+    color: #fff !important;font-weight: 700;font-size: 14px !important;
+    /* letter-spacing: 1px; */
+}
+
+.monaco-list-row.selected {
+    background: transparent !important;color: #fff !important;font-weight: 700;backdrop-filter: brightness(1.5);box-shadow: 0 0 5px 1px rgb(0 0 0 / 5%);
+}
+
+//////////////////////////////////////////////////@at-root
+.monaco-workbench .part.editor>.content .editor-group-container {
+    border: 10px solid transparent;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.monaco-editor, .monaco-editor .overflow-guard, .monaco-editor .view-lines {
+    width: 100% !important;
+}
+
+.invisible.scrollbar.horizontal {
+    width: calc(100% - 14px) !important;
+    bottom: 22px !important;
+}
+
+.monaco-scrollable-element.editor-scrollable {
+    width: calc(100% - 58px) !important;
+}
+
+.lines-content.monaco-editor-background {
+    width: calc(100% - 16px) !important;
+}
+

@@ -1,0 +1,35 @@
+div#workbench\.parts\.sidebar {
+	--sidebar-header-height: 55px;
+	--sidebar-padding: 5px;
+	--sidebar-padding-2x: calc(var(--sidebar-padding) * 2);
+	width: calc(100% - var(--sidebar-padding-2x));
+	height: calc(100% - var(--sidebar-padding-2x));
+	box-sizing: content-box;
+	border: var(--sidebar-padding) solid white !important;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: space-around;
+	align-items: stretch;
+	overflow: visible;
+	/*margin-top: 10px;
+    margin-left: 10px;*/
+}
+div#workbench\.parts\.sidebar > .content {
+	width: 100% !important;
+	top: 0 !important;
+	height: 100% !important;
+}
+
+div[id^="workbench.view"] .split-view-view.visible:not([style*="height: 32px"]) ~ .split-view-view.visible:last-child {
+	transform: translateY(calc(-1 * var(--sidebar-padding-2x)));
+}
+/*
+div[id^="workbench.view"] .pane.vertical.expanded {
+    height: calc(100% + var(--sidebar-padding-2x));
+}
+.monaco-list-row:last-child {
+    padding: 20px auto !important;
+    height:  !important;
+}
+*/

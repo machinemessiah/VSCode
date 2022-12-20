@@ -1,0 +1,27 @@
+/* ! Method for adding padding to editor instances that 99% works! */
+/*
+.monaco-workbench .part.editor>.content .editor-group-container {
+	transform: scale(1);
+	box-sizing: border-box;
+	border: 5px solid transparent;
+	height: calc(100% - 0px) !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.editor-container {
+	height: calc(100% - 35px) !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.editor-container>.editor-instance {
+	height: calc(100% - 0px) !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.editor-container>.editor-instance> :is(.monaco-editor, .extension-editor) {
+	width: 100% !important;
+	height: calc(100% - 0px) !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.editor-container>.editor-instance>.monaco-editor>.overflow-guard {
+	width: 100% !important;
+	height: calc(100% - 0px) !important;
+}
+*/

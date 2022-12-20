@@ -1,0 +1,88 @@
+:root{
+    --editor_border-w: 35px;
+}
+.monaco-workbench .part.editor>.content .editor-group-container {
+    /* overflow: visible; */
+    /* box-sizing: content-box; */
+    /* outline: 2px solid coral; */
+    padding: 10px;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container .editor-container {
+    border-top: calc(0.5 * var(--editor_border-w)) solid transparent;
+    box-sizing: border-box;
+    transform: translate(0px, calc(-0.5 * var(--editor_border-w)));
+    z-index: 0;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container .title.tabs {
+    z-index: 1;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container .editor-container .settings-editor {
+    /* padding: 10px; */
+    /* overflow: scroll; */
+    padding: 0;
+    box-sizing: border-box;
+    /* border-bottom: 26px solid coral; */
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.editor-container>.editor-instance {
+    overflow: hidden;
+    overflow: clip;
+}
+
+.settings-editor>.settings-body {
+    /* margin: 0; */
+    /* border-top: 0px solid transparent; */
+    /* border-bottom: 106px solid coral; */
+    /* box-sizing: border-box; */
+    /* transform: translate(0px, -15px); */
+    /* z-index: 0; */
+    /* padding-top: 15px; */
+    height: -webkit-fill-available;
+    margin: 0;
+}
+
+.settings-editor>.settings-header {
+    /* padding: 0; */
+    z-index: 1;
+    flex-grow: 1;
+    /* flex-basis: 10vw; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    height: 100%;
+    overflow: visible;
+    width: -webkit-fill-available;
+}
+
+.settings-editor>.settings-body .settings-toc-wrapper {
+    padding-left: 0;
+}
+
+.monaco-workbench .monaco-scrollable-element > .shadow {
+    box-shadow: none !important;
+}
+
+.settings-tree-container {}
+
+.monaco-workbench.vs-dark .settings-editor>.settings-header>.settings-header-controls {
+    display: block;
+}
+
+.settings-editor>.settings-body .settings-toc-container .monaco-list {
+    width: var(--settings-tree_width);
+}
+
+:root {
+    --settings-tree_width: 200px;
+}
