@@ -6,7 +6,9 @@
 	--m1_inactive-tab-opacity: 0.5;
 	--m1_inactive-tab-opacity: 1;
 	/* + change for new active tab solution */
-	--m1_hover-editor-opacity: 0.95;
+	/* = leaving this at 1 for visibility (usability does kind of have to come first...ish) */
+	--m1_hover-editor-opacity: 1;
+	/*0.95;*/
 }
 
 :root body>div[role='application']:not(.vs-dark) {
@@ -24,11 +26,11 @@
 	--scale-a: 1;
 	--scale-x: 0.99;
 	--scale-h: 1;
-	--filter: saturate(1.5);
 	--filter-a: saturate(2);
-	--filter-x: none;
+	--filter-x: saturate(1.75) brightness(0.95);
 	/*saturate(0.99);*/
 	--filter-h: saturate(1.75);
+	--filter: saturate(1.75) brightness(0.95);
 
 	/*--filter-x: hue-rotate(180deg);*/
 	--filter-terminal-extra: brightness(1.2);
