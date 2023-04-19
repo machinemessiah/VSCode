@@ -4,5 +4,45 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"[css]": {
+			"editor.defaultFormatter": "vscode.css-language-features",
+			"editor.formatOnPaste": true,
+			"editor.formatOnType": true,
+			"editor.wordSeparators": "`~!@%^&*()_=+[{]}\\|;:'\",.<>/?"
+		},
+		"[javascript]": {
+			"editor.defaultFormatter": "vscode.typescript-language-features",
+			"editor.foldingStrategy": "auto",
+			"editor.formatOnPaste": true,
+			"editor.formatOnType": true,
+			"editor.tabCompletion": "on"
+		},
+		"[json]": {
+			"editor.defaultFormatter": "vscode.json-language-features",
+			"editor.quickSuggestions": {
+				"strings": true
+			},
+			"editor.suggest.insertMode": "replace"
+		},
+		"[jsonc]": {
+			"editor.defaultFormatter": "vscode.json-language-features"
+		},
+		"[scss]": {
+			"editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter",
+			"editor.foldingStrategy": "indentation",
+			"editor.formatOnPaste": true,
+			"editor.formatOnType": true,
+			"editor.wordSeparators": "`~!@%^&*()=+[{]}\\|;:'\",.<>/?"
+		},
+		"Scss2css.output": "expanded",
+		"Scss2css.indentType": "tab",
+		"Scss2css.indentWidth": 3,
+		"editor.formatOnType": true,
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true,
+		"workbench.colorCustomizations": {
+			"[Monokai]": {}
+		}
+	}
 }
