@@ -1,0 +1,130 @@
+.actions-container li.action-item.icon.checked {
+	background: var(--vscode-activityBar-border);
+}
+
+.monaco-workbench .activitybar>.content>.composite-bar {
+	margin-top: auto;
+}
+
+div#workbench\.parts\.sidebar {
+	--default-background-color: var(--vscode-sideBar-background);
+}
+
+div#workbench\.parts\.sidebar>.composite.title {
+	color: var(--vscode-activityBar-foreground) !important;
+}
+
+div#workbench\.parts\.sidebar>.composite.title>.title-label h2 {
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--vscode-activityBar-foreground) !important;
+}
+
+div#workbench\.parts\.sidebar>.content::after {
+	box-shadow: inset 0 0 25px 3px var(--vscode-widget-shadow);
+	content: "";
+	position: absolute;
+	inset: -25px -25px -25px 0;
+	z-index: 0;
+	pointer-events: none;
+}
+
+div#workbench\.parts\.sidebar>.content .pane-header+.pane-body::after {
+	display: none;
+}
+
+/* # same day, slightly later */
+div#workbench\.parts\.sidebar>.content::after {
+	inset: -50px -25px -25px 0;
+}
+
+/* # more same day shit */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.sticky-compact,
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-shrink.sticky-compact {
+	border-color: transparent !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title>.tabs-and-actions-container>.monaco-scrollable-element>.scrollbar {
+	opacity: 0 !important;
+}
+
+/* ! These changes were made to the MBP.css file, not latest.scss (still needs merging) */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab::after {
+	background: rgba(var(--default-background-color-rgb), 0.15);
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active::after {
+	inset: 1px 0px 1px 0px;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab:first-child.active::after {
+	inset: 1px 0px 1px 1px;
+}
+
+:root body>div[role="application"].vs-dark {
+	--default-background-color-rgb: 19, 19, 19;
+	--default-background-color: rgb(var(--default-background-color-rgb), var(--dbc-alpha, 1));
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-and-actions-container::before {
+	background: rgba(var(--default-background-color-rgb), 0.65);
+}
+
+/* # same day, slightly later */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab::after {
+	background: rgba(var(--default-background-color-rgb), 0.5);
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab[class*="sticky"]::after {
+	background: rgba(var(--default-background-color-rgb), 0.25);
+}
+
+.editor-group-container:is(.inactive, :not(.active))::after {
+	box-shadow: inset 0 0 50px 0px rgba(var(--default-background-color-rgb), 0.5) !important;
+}
+
+.editor-group-container:is(.active, :hover)::after {
+	box-shadow: inset 0 0 0px 0px rgba(var(--default-background-color-rgb), 0) !important;
+}
+
+
+
+/* ! testing shit, not implemented */
+.monaco-workbench .part.editor>.content .editor-group-container>.editor-container::before {
+	content: "";
+	position: absolute;
+	display: block;
+	pointer-events: none;
+	inset: 0px 1px 1px 1px;
+	border: none !important;
+	border-top-width: 0 !important;
+	z-index: 12;
+	box-sizing: border-box;
+	box-shadow: inset 0px 0px 0px 3px var(--m1-border-color);
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active::after {
+	border: 1px solid var(--m1-border-color) !important;
+	border-bottom-width: 0px !important;
+	/* inset: 1px 0px 1px 1px; */
+	inset: 1px 0px -3px 0px;
+	background: none;
+	box-shadow: inset 0 0 0px 3px var(--m1-border-color);
+	border-width: 0px !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-and-actions-container::before {
+	content: "";
+	position: absolute;
+	display: block;
+	pointer-events: none;
+	inset: 0 0 1px 0;
+	border-bottom: 1px solid var(--m1-border-color);
+	background: rgba(var(--default-background-color-rgb), 0.65);
+	/* visibility: collapse; */
+	border-width: 0px !important;
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title>.tabs-and-actions-container>.monaco-scrollable-element {
+	transform: translateY(1px);
+}

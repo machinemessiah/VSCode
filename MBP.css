@@ -35,8 +35,10 @@
 	/*--filter-x: hue-rotate(180deg);*/
 	--filter-terminal-extra: brightness(1.2);
 	--text-shadow-a: 0 0 1px black, 0 0 1px black, 0 0 6px currentColor, 0 0 9px black, 0 0 12px currentColor;
+	--text-shadow-c: 0 0 4px black;
 
-	--default-background-color: rgb(19, 19, 19);
+	--default-background-color-rgb: 19, 19, 19;
+	--default-background-color: rgb(var(--default-background-color-rgb), var(--dbc-alpha, 1));
 }
 
 .split-view-view.visible {
@@ -47,6 +49,11 @@
 .editor-group-container span[class*='mtkb'] {
 	/*filter: var(--filter-a);*/
 	text-shadow: var(--text-shadow-a);
+}
+
+.editor-group-container span[class*='mtk3'][class*='mtki']:not([class*='ced-1-TextEditorDecorationType']) {
+	/*filter: var(--filter-a);*/
+	text-shadow: var(--text-shadow-c);
 }
 
 #workbench\\.parts\\.editor .split-view-container>.split-view-view {
@@ -81,7 +88,9 @@ div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::aft
 
 .editor-group-container:not(.active) {
 	opacity: var(--m1_inactive-editor-opacity);
-	transform: scale(var(--scale-x));
+	/*transform: scale(var(--scale-x));*/
+	transform: unset;
+	box-shadow: inset 0 0 10px 1px var(--default-background-color);
 	/*filter: none;*/
 	--filter: var(--filter-x);
 }
@@ -101,6 +110,16 @@ div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::aft
 	z-index: 100;
 	pointer-events: none;
 	backdrop-filter: var(--filter);
+	transition: box-shadow 50ms linear;
+	box-shadow: inset 0 0 0px 0px rgba(var(--default-background-color-rgb), 0);
+}
+
+.editor-group-container:is(.inactive, :not(.active))::after {
+	box-shadow: inset 0 0 50px 0px rgba(var(--default-background-color-rgb), 0.5) !important;
+}
+
+.editor-group-container:is(.active, :hover)::after {
+	box-shadow: inset 0 0 0px 0px rgba(var(--default-background-color-rgb), 0) !important;
 }
 
 .title.tabs.show-file-icons.title-border-bottom {
@@ -212,10 +231,14 @@ div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::aft
 .monaco-workbench .part.editor>.content .editor-group-container.active {
 	--m1-border-color: var(--vscode-tab-activeBorderTop);
 	--m1-border-color: var(--vscode-merge-incomingHeaderBackground);
+
+	--m1-border-color: var(--vscode-selection-background);
 }
 
 .monaco-workbench .part.editor>.content .editor-group-container:is(.inactive, :not(.active)) {
 	--m1-border-color: var(--vscode-inputOption-hoverBackground);
+
+	--m1-border-color: rgba(var(--default-background-color-rgb), 0.05);
 }
 
 /* @ tabs-and-actions-container::before (for when there is empty space) */
@@ -227,6 +250,7 @@ div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::aft
 	pointer-events: none;
 	inset: 0 0 1px 0;
 	border-bottom: 1px solid var(--m1-border-color);
+	background: rgba(var(--default-background-color-rgb), 0.65);
 }
 
 .monaco-workbench .part.editor>.content .editor-group-container>.title>.tabs-and-actions-container.tabs-border-bottom::after {
@@ -243,7 +267,8 @@ div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::aft
 .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab::after {
 	border: 1px solid var(--m1-border-color) !important;
 	border-width: 0 0 1px 0 !important;
-	background: rgba(0, 0, 0, 0.25);
+	/*background: rgba(0, 0, 0, 0.25);*/
+	background: rgba(var(--default-background-color-rgb), 0.5);
 	box-sizing: content-box !important;
 	content: '';
 	position: absolute;
@@ -251,6 +276,11 @@ div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::aft
 	inset: 1px -1px 1px -1px;
 	z-index: 1;
 	pointer-events: none;
+}
+
+/* @ pinned tab */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab[class*="sticky"]::after {
+	background: rgba(var(--default-background-color-rgb), 0.25);
 }
 
 /* @ regular tab hover */
@@ -264,8 +294,15 @@ div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::aft
 .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active::after {
 	border: 1px solid var(--m1-border-color) !important;
 	border-bottom-width: 0px !important;
-	inset: 1px 0px 1px 1px;
+	/*inset: 1px 0px 1px 1px;*/
+	inset: 1px 0px 1px 0px;
 	background: none;
+}
+
+/* @ active tab::after if it is also the FIRST tab */
+/* _ border-left needs moving IN 1px */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab:first-child.active::after {
+	inset: 1px 0px 1px 1px;
 }
 
 /* @ editor::before border */
