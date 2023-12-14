@@ -9,12 +9,11 @@
 	--m1_editor-opacity: 1;
 	--m1_active-editor-opacity: 1;
 	--m1_inactive-editor-opacity: 0.8;
-	///--m1_inactive-tab-opacity: 0.5;
-	///--m1_inactive-tab-opacity: 1;
-	/* + change for new active tab solution */
-	/* = leaving this at 1 for visibility (usability does kind of have to come first...ish) */
+	--m1_inactive-tab-opacity: 0.5;
+	--m1_inactive-tab-opacity: 1;
+	// + change for new active tab solution 
+	// = leaving this at 1 for visibility (usability does kind of have to come first...ish)
 	--m1_hover-editor-opacity: 0.95;
-	/*0.95;*/
 
 	// @ Our most Holy and Esteemed Gradient of The Great Hub of Git
 	--grad-git: linear-gradient(
@@ -655,6 +654,9 @@ div#workbench\.parts\.panel {
 */
 
 /* ! temp terminal shit */
+// ! WORK OUT HOW TO STYLE THIS SHIT GOOD
+/*
+
 .monaco-workbench .editor-instance .xterm-viewport,
 .monaco-workbench .pane-body.integrated-terminal .xterm-viewport {
 	-webkit-background-clip: unset;
@@ -667,12 +669,21 @@ div#workbench\.parts\.panel {
 	align-content: center;
 	justify-content: center;
 	align-items: center;
-}
 
-.monaco-workbench .editor-instance .xterm,
+	> :is(.xterm, .terminal) {
+		top: 0;
+	}
+}
+.monaco-workbench .pane-body.integrated-terminal .xterm,
+.monaco-workbench .terminal-editor .xterm .monaco-workbench .editor-instance .xterm,
 .monaco-workbench .pane-body.integrated-terminal .xterm {
 	position: relative;
 }
+.xterm-screen .xterm-decoration-container .xterm-decoration {
+	display: none;
+}
+
+*/
 
 // ! (04/15/2023)
 /*
@@ -754,3 +765,30 @@ div#workbench\.parts\.panel {
 	// @ this is for the weird "only shows at the sides" underlay on an active/hovered/focused terminal
 	background-color: inherit !important;
 }*/
+// @ Minimap changes
+// = when autohidden, the minimap will be visible on hover
+// = shadow added, mouseover region is smaller due to a horizontal translation
+// = minimap has been scaled along the x axis (it's 50% of the original width)
+.minimap.autohide {
+	opacity: 0;
+	transition:
+		opacity 0.5s,
+		translate 0.25s;
+	translate: 50% 0;
+	/* background: transparent; */
+	/* backdrop-filter: blur(10px); */
+	/* outline: 1px solid var(--vscode-diffEditorOverview-insertedForeground); */
+	box-shadow: -6px 0 6px 0 rgba(0, 0, 0, 0.1);
+	scale: 0.75 1;
+	transform-origin: right;
+	&:hover {
+		translate: 0 0;
+	}
+}
+
+// @ Sticky function block modifications
+div#workbench\.parts\.editor .monaco-editor .sticky-widget[widgetid="editor.contrib.stickyScrollWidget"] {
+	width: calc(100% - var(--sticky-func-extra, 0px)) !important;
+	box-shadow: 5px 0 20px 2px var(--ts-dark);
+	padding: 2px 0;
+}

@@ -42,7 +42,10 @@
 		"editor.formatOnPaste": true,
 		"editor.formatOnSave": true,
 		"workbench.colorCustomizations": {
-			"[Monokai]": {}
+			"[Monokai]": {},
+			"[Monokai Pro (Filter Machine)]": {
+				"activityBar.border": "#444444"
+			}
 		}
 	}
 }
