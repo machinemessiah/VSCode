@@ -46,6 +46,8 @@
 			"[Monokai Pro (Filter Machine)]": {
 				"activityBar.border": "#444444"
 			}
-		}
+		},
+		"autoHide.hideSideBarsOnDebug": false,
+		"autoHide.hidePanelOnDebug": false
 	}
 }
