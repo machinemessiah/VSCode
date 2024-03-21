@@ -37,7 +37,9 @@
 	--text-shadow-c: 0 0 4px black;
 
 	--default-background-color-rgb: 19, 19, 19;
+	--dbc-alpha: 0;
 	--default-background-color: rgb(var(--default-background-color-rgb), var(--dbc-alpha, 1));
+	--default-background-color: rgba(0, 0, 0, 0);
 &.nofx {
 		--text-shadow-a: none;
 		--text-shadow-c: none;
@@ -377,7 +379,7 @@ div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::aft
 
 /*! STUFF*/
 .terminal-wrapper.active {
-	background: var(--vscode-input-background);
+	/*background: var(--vscode-input-background);*/
 }
 
 /* ! LAZY NOT-FIX "FIX" for using the embedded devtools without useless iframe srollbars*/

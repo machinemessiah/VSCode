@@ -71,7 +71,7 @@
 			///--text-shadow-a: 0 0 1px black, 0 0 1px black, 0 0 6px currentColor, 0 0 9px black, 0 0 12px currentColor;
 			--text-shadow-a: none;
 
-			--default-background-color: var(--vscode-editor-background); /// rgb(19, 19, 19);
+			--default-background-color: rgba(0,0,0,0);///var(--vscode-editor-background); /// rgb(19, 19, 19);
 		}
 		&[class*="doki-theme"] {
 			--file-scss-color: #ea3876;
@@ -791,4 +791,11 @@ div#workbench\.parts\.editor .monaco-editor .sticky-widget[widgetid="editor.cont
 	width: calc(100% - var(--sticky-func-extra, 0px)) !important;
 	box-shadow: 5px 0 20px 2px var(--ts-dark);
 	padding: 2px 0;
+}
+
+// @@ for Codeium tooltip
+ul#headlessui-listbox-options-\:r1\: {
+	background: rgba(30,0,30,var(--tw-bg-opacity));
+	background: var(--grad-git);
+	padding: 1rem;
 }
