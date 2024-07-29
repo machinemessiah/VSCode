@@ -21,26 +21,27 @@
 
 :root body > div[role='application'].vs-dark {
 	--ts-dark: rgba(0, 0, 0, 1);
-	--text-shadow-a: 0 0 0.5px var(--ts-dark), 0 0 1px currentColor, 0 0 5px var(--ts-dark), 0 0 10px currentColor;
+	--text-shadow-a: 0 0 0.5px var(--ts-dark), 0 0 1px currentColor, 0 0 5px var(--ts-dark), 0 0 1px currentColor;
 	--scale-a: 1;
 	--scale-x: 0.99;
 	--scale-h: 1;
-	--filter-a: saturate(2);
-	--filter-x: saturate(1.75) brightness(0.95);
+	--filter-a: saturate(1.5);
+		--filter-x: saturate(1.25) brightness(0.9);
 	/*saturate(0.99);*/
-	--filter-h: saturate(1.75);
-	--filter: saturate(1.75) brightness(0.95);
+	--filter-h: saturate(1.25) brightness(0.95);
+		--filter: saturate(1.05) brightness(0.9);
 
 	/*--filter-x: hue-rotate(180deg);*/
 	--filter-terminal-extra: brightness(1.2);
-	--text-shadow-a: 0 0 1px black, 0 0 1px black, 0 0 6px currentColor, 0 0 9px black, 0 0 12px currentColor;
-	--text-shadow-c: 0 0 4px black;
+	--text-shadow-a: 0 0 4px rgba(0, 0, 0, 0.5), 0 0 1px color-mix(in srgb, currentColor 75%, rgba(255, 255, 255, 0));
+		--text-shadow-c: 0 0 4px rgba(0, 0, 0, 0.5);
 
 	--default-background-color-rgb: 19, 19, 19;
 	--dbc-alpha: 0;
 	--default-background-color: rgb(var(--default-background-color-rgb), var(--dbc-alpha, 1));
 	--default-background-color: rgba(0, 0, 0, 0);
-&.nofx {
+
+	&.nofx {
 		--text-shadow-a: none;
 		--text-shadow-c: none;
 		--filter-h: none;

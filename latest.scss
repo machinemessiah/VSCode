@@ -559,6 +559,62 @@ div#workbench\.parts\.editor {
 [class*="ced-1-TextEditorDecorationType"] {
 	font-style: normal;
 }
+div.notifications-toasts.visible:has(div.monaco-list-row[aria-label*="CSS Var Complete"]) {
+	display: none;
+	///display: FUCKOFFANDDIE;
+}
+// + THE SLEEPER MUST AWAKEN
+// @1 "addaam reshii a-zaanta!" / "long live the fighters!"
+// @2 "E Rudhi Dina, heshidhanii" / "Hand of God be my witness"
+// @3 ""
+// @1 "Bidjurat'ih biwadzamah?" (Do you smash a knife before battle?)
+// @2 "udarasot udafesiihi neffripit kumunii!! (There is no one in this room who can stand against me)
+// @3 "Gabakakalikakaari huraaii!" (your mothers warned you about my coming!)
+// @4 "Jahaish..." (fear the moment...)
+
+// @note ENGLISH "But you think you could have a chance"
+
+.monaco-workbench.chromium {
+	--vscode-editor-selectionBackground: rgba(1, 118, 208, 0.216);
+	--vscode-editor-inactiveSelectionBackground: rgba(0, 108, 191, 0.216);
+	--vscode-editor-selectionHighlightBackground: rgba(42, 109, 93, 0.446);
+	--vscode-editor-selectionHighlightBorder: rgba(42, 109, 93, 0.446);
+
+	--vscode-editor-findMatchBackground: rgba(242, 255, 252, 0.15);
+	--vscode-editor-findMatchHighlightBackground: rgba(242, 255, 252, 0.15);
+	--vscode-editor-findRangeHighlightBackground: rgba(242, 255, 252, 0.05);
+	--vscode-editor-findMatchBorder: #ffed72;
+	--vscode-editor-findMatchHighlightBorder: rgba(0, 0, 0, 0);
+	--vscode-editor-findRangeHighlightBorder: rgba(0, 0, 0, 0);
+	--vscode-editor-hoverHighlightBackground: rgba(242, 255, 252, 0.05);
+	--vscode-editorHoverWidget-background: #3a4449;
+}
+
+/**
+Isnad(t)ajhaajj sihochaositch shizihi'k ishi(d)támashabidu edemajjili (but you are afraid, what if I could be the one? This could be the moment you've been praying for, all your life)
+
+Dukahdzajjvadi karrakajh uzulfabdnai gevibarrtawad'i
+Juwlahagari imajhneriyakala jeskeob'it hahghahau oer'lejausi julah hah'amnsi sihisakyutufanii..
+Dune
+(You are praying now. To your grandmother, she died nine moons ago. She lost an eye a rock smashed her face as she was crossing the belt.
+She was twelve when it happened. At that time, this world had a Fremen name, Dune)
+
+ufazifajhizuzz'a di'kajhekeazuhuh! Hiaansadaha chipihukrash!
+(In your nightmares you give water to the dead and it brings joy to your heart)
+
+Mahdi, heshiishan'tche?
+(Mahdi what do you foresee for us)
+
+Siddim shari (green paradise) (shiihgim shari)
+
+Lisan al-gaib! Shuuba hogiv
+(Voice of the outer world show us the way)
+
+This is my father ducal signet
+I am Paul Muad'ib Atreides, Duke of Arrakis
+E Rudhi Dina, heshidhanii: (hand of god be my witness) Ne Lisaan al-Gaib! (I am the voice of the outer world!)
+Rhuin dimala ru e(a) Siddim(shidim) (I will lead you to paradise)" 
+**/
 
 /*.monaco-workbench .part.editor>.content .editor-group-container>.editor-container::before {
 	content: "";
@@ -799,3 +855,122 @@ ul#headlessui-listbox-options-\:r1\: {
 	background: var(--grad-git);
 	padding: 1rem;
 }
+
+app-ai-chat {
+	chat-input {
+		> form {
+			margin: 10px;
+		}
+
+		.input-box {
+			display: flex;
+			flex-direction: column !important;
+
+		}
+
+		mat-chip.mat-mdc-chip {
+			--mdc-chip-container-shape-radius: 5px !important;
+		}
+
+		.mat-mdc-standard-chip .mdc-evolution-chip__action--primary {
+			padding: 0px 5px !important;
+			border: 2px solid #606060;
+		}
+
+			
+		textarea#mat-input-0 {
+			min-height: 20vh !important;
+			max-height: 30vh !important;
+			height: auto !important;
+			/* resize: auto; */
+			z-index: auto;
+			position: relative;
+			color: white;
+			font-family: JetBrains Mono;
+			line-height: normal;
+			font-size: 0.85em;
+		}
+
+		.mat-mdc-text-field-wrapper.mdc-text-field--outlined.mdc-text-field--no-label {
+			border: none;
+			background: #232323;
+			padding: 14px 14px;
+			/*border: 5px solid transparent !important;*/
+			border-radius: 10px;
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				inset: 2px;
+				z-index: -1;
+				pointer-events: none;
+				border-radius: 10px;
+				background: #232323;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				inset: 0 0 0 0;
+				z-index: -1;
+				pointer-events: none;
+				border-radius: 10px;
+				background: linear-gradient(45deg,#217bfe,#078efb .1%,#ac87eb 30%,#ee4d5d);
+			}
+
+			
+			.mdc-text-field--outlined .mdc-notched-outline {
+				display: none;
+			}
+			
+			.mat-mdc-form-field-infix {
+				padding: 0 !important;
+			}
+		}
+
+		.mdc-text-field--outlined .mdc-notched-outline {
+			display: none;
+		}
+		button.submit-button.mdc-icon-button.mat-mdc-icon-button.mat-unthemed.mat-mdc-button-base {
+			margin: 10px 0 0 0;
+			border-radius: 5px;
+			position: relative;
+			width: 100%;
+			--mat-icon-color: #232323;
+
+			> .mat-icon {
+				color: transparent !important;  
+			}
+
+			&::after, &::before {
+				font-family: 'Material Icons';
+				font-family: Fira Sans;
+				content: "";
+				position: absolute;
+				pointer-events: none;
+				inset: 0px;
+				background: linear-gradient(45deg,#217bfe,#078efb .1%,#ac87eb 30%,#ee4d5d);
+				z-index: -1;
+				border-radius: 5px;
+			}
+			&::after {
+				content: "reply";
+				display: flex;
+				font-size: 1.8em;
+				line-height: 1.8em;
+				text-align: center;
+				color: #232323;
+				background: white;
+				inset: 5px;
+				outline: 3px solid #232323;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+}
+
+
+

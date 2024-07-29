@@ -42,9 +42,31 @@
 		"editor.formatOnPaste": true,
 		"editor.formatOnSave": true,
 		"workbench.colorCustomizations": {
-			"[Monokai]": {},
+			"[Adapta Nokto]": {},
+			"[Back to the Code]": {},
+			"[Evans Dark Theme]": {},
+			"[Kiwisoup]": {},
 			"[Monokai Pro (Filter Machine)]": {
-				"activityBar.border": "#444444"
+				"activityBar.background": "#444444",
+				"activityBar.border": "#444444",
+				"activityBar.foreground": "#ffd166",
+				"activityBar.inactiveForeground": "#cccccc"
+			},
+			"[Monokai]": {},
+			"[Yi Dark]": {
+				"button.background": "#03d49c",
+				"button.hoverBackground": "#03d49c",
+				"editorHint.foreground": "#02c67e",
+				"editorInfo.foreground": "#02c67e",
+				"editorMarkerNavigationInfo.background": "#03d49c",
+				"editorOverviewRuler.infoForeground": "#02c67e",
+				"inputValidation.infoBackground": "#03d49c",
+				"inputValidation.infoBorder": "#02c67e",
+				"tab.activeBorder": "#65ff00",
+				"tab.activeBorderTop": "#65ff00",
+				"tab.activeForeground": "#65ff00",
+				"tab.unfocusedActiveBorderTop": "#65ff00",
+				"tab.unfocusedActiveForeground": "#65ff00"
 			}
 		},
 		"autoHide.hideSideBarsOnDebug": false,
