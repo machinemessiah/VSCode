@@ -1,0 +1,38 @@
+// @!note - a poor attempt to apply line-wrapping to the codeblocks in the composer/chat panel
+// @note - works in terms of visibility, wrapping the lines, no lines overlapping lines above/below
+// @problems - text selection is...off. not sure why exactly, but it makes this approach out of reach for the moment
+// @question - is there a class or style that can be applied to the codeblock to make it wrap like code does in the main editor panel(s)?
+.composer-message-codeblock {
+	.lines-content.monaco-editor-background {
+		width: 100% !important;
+		max-width: 100% !important;
+		inset: 0 0 0 0 !important;
+
+		.view-lines.monaco-mouse-cursor-text {
+			width: 100% !important;
+			.view-line {
+				display: flex;
+				flex-wrap: wrap;
+				> span:not([class]) {
+					display: inline-flex;
+					flex-wrap: wrap;
+					height: fit-content;
+				}
+				flex-direction: row;
+				align-content: center;
+				justify-content: flex-start;
+				align-items: center;
+				height: fit-content !important;
+				/* top: unset !important; */
+				/* position: relative; */
+			}
+
+			display: flex;
+			flex-wrap: wrap;
+			align-content: flex-start;
+			justify-content: space-evenly;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+}

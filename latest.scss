@@ -11,7 +11,7 @@
 	--m1_inactive-editor-opacity: 0.8;
 	--m1_inactive-tab-opacity: 0.5;
 	--m1_inactive-tab-opacity: 1;
-	// + change for new active tab solution 
+	// + change for new active tab solution
 	// = leaving this at 1 for visibility (usability does kind of have to come first...ish)
 	--m1_hover-editor-opacity: 0.95;
 
@@ -31,7 +31,7 @@
 		rgb(213, 71, 235) 100%
 	);
 
-	body > div[role="application"] {
+	body > div[role='application'] {
 		&:not(.vs-dark) {
 			--filter: saturate(1.25);
 			--filter-a: saturate(1.25);
@@ -71,9 +71,9 @@
 			///--text-shadow-a: 0 0 1px black, 0 0 1px black, 0 0 6px currentColor, 0 0 9px black, 0 0 12px currentColor;
 			--text-shadow-a: none;
 
-			--default-background-color: rgba(0,0,0,0);///var(--vscode-editor-background); /// rgb(19, 19, 19);
+			--default-background-color: rgba(0, 0, 0, 0); ///var(--vscode-editor-background); /// rgb(19, 19, 19);
 		}
-		&[class*="doki-theme"] {
+		&[class*='doki-theme'] {
 			--file-scss-color: #ea3876;
 			&.monaco-workbench {
 				.monaco-grid-view {
@@ -216,7 +216,7 @@ div#workbench\.parts\.sidebar {
 		position: relative;
 		&::after {
 			box-shadow: inset 0 0 25px 3px var(--vscode-widget-shadow);
-			content: "";
+			content: '';
 			position: absolute;
 			inset: -50px -25px -25px 0;
 			z-index: 0;
@@ -229,7 +229,7 @@ div#workbench\.parts\.editor {
 		.scroll-decoration {
 			box-shadow: none;
 		}
-		.sticky-widget[widgetid="editor.contrib.stickyScrollWidget"] {
+		.sticky-widget[widgetid='editor.contrib.stickyScrollWidget'] {
 			box-shadow: var(--vscode-scrollbar-shadow) -18px -10px 20px -2px;
 			/* width: calc(100% - 80px) !important; */
 		}
@@ -280,8 +280,8 @@ div#workbench\.parts\.editor {
 
 					// _ apply text "glow" effect to code
 					span {
-						&:is([class*="mtk"], [class*="mtkb"]) {
-							&:not([class*="ced-1-TextEditorDecorationType"]) {
+						&:is([class*='mtk'], [class*='mtkb']) {
+							&:not([class*='ced-1-TextEditorDecorationType']) {
 								/*filter: var(--filter-a);*/
 								///text-shadow: var(--text-shadow-a);
 							}
@@ -406,7 +406,7 @@ div#workbench\.parts\.editor {
 									// = expand width for pinned tab if it's also the active tab
 									// TODO what do we do about pinned tabs that follow?
 									&:is(.sizing-shrink, .sizing-fit):is(.sticky-shrink, .sticky-compact),
-									&[class*="sticky-"][class*="sizing-"] {
+									&[class*='sticky-'][class*='sizing-'] {
 										min-width: fit-content;
 										width: fit-content;
 										max-width: unset;
@@ -442,27 +442,27 @@ div#workbench\.parts\.editor {
 								// ! Very messy and hardcoded for up to 8 pinned tabs
 								// ! but I don't know how to do this any other way (atm)
 								// + incrementing gap for each successive pinned tab
-								&[class*="sticky-"] {
+								&[class*='sticky-'] {
 									& ~ .tab.active {
 										--active-sticky-l: calc(var(--sticky-step) * 1);
 									}
-									+ .tab[class*="sticky-"] {
+									+ .tab[class*='sticky-'] {
 										~ .tab.active {
 											--active-sticky-l: calc(var(--sticky-step) * 2);
 										}
-										& + .tab[class*="sticky-"] {
+										& + .tab[class*='sticky-'] {
 											~ .tab.active {
 												--active-sticky-l: calc(var(--sticky-step) * 3);
 											}
-											& + .tab[class*="sticky-"] {
+											& + .tab[class*='sticky-'] {
 												~ .tab.active {
 													--active-sticky-l: calc(var(--sticky-step) * 4);
 												}
-												& + .tab[class*="sticky-"] {
+												& + .tab[class*='sticky-'] {
 													~ .tab.active {
 														--active-sticky-l: calc(var(--sticky-step) * 5);
 													}
-													& + .tab[class*="sticky-"] {
+													& + .tab[class*='sticky-'] {
 														~ .tab.active {
 															--active-sticky-l: calc(var(--sticky-step) * 6);
 														}
@@ -550,16 +550,16 @@ div#workbench\.parts\.editor {
 }
 
 .codicon-pinned:before {
-	content: "\EA83" !important;
-	font-family: "pi-material-icons" !important;
+	content: '\EA83' !important;
+	font-family: 'pi-material-icons' !important;
 }
 
 // ! fix for allowing better-comments to control font-style
 // _ is specifically "unspecific" so it overrides the default but not better-comments
-[class*="ced-1-TextEditorDecorationType"] {
+[class*='ced-1-TextEditorDecorationType'] {
 	font-style: normal;
 }
-div.notifications-toasts.visible:has(div.monaco-list-row[aria-label*="CSS Var Complete"]) {
+div.notifications-toasts.visible:has(div.monaco-list-row[aria-label*='CSS Var Complete']) {
 	display: none;
 	///display: FUCKOFFANDDIE;
 }
@@ -843,7 +843,7 @@ div#workbench\.parts\.panel {
 }
 
 // @ Sticky function block modifications
-div#workbench\.parts\.editor .monaco-editor .sticky-widget[widgetid="editor.contrib.stickyScrollWidget"] {
+div#workbench\.parts\.editor .monaco-editor .sticky-widget[widgetid='editor.contrib.stickyScrollWidget'] {
 	width: calc(100% - var(--sticky-func-extra, 0px)) !important;
 	box-shadow: 5px 0 20px 2px var(--ts-dark);
 	padding: 2px 0;
@@ -851,7 +851,7 @@ div#workbench\.parts\.editor .monaco-editor .sticky-widget[widgetid="editor.cont
 
 // @@ for Codeium tooltip
 ul#headlessui-listbox-options-\:r1\: {
-	background: rgba(30,0,30,var(--tw-bg-opacity));
+	background: rgba(30, 0, 30, var(--tw-bg-opacity));
 	background: var(--grad-git);
 	padding: 1rem;
 }
@@ -865,7 +865,6 @@ app-ai-chat {
 		.input-box {
 			display: flex;
 			flex-direction: column !important;
-
 		}
 
 		mat-chip.mat-mdc-chip {
@@ -877,7 +876,6 @@ app-ai-chat {
 			border: 2px solid #606060;
 		}
 
-			
 		textarea#mat-input-0 {
 			min-height: 20vh !important;
 			max-height: 30vh !important;
@@ -900,7 +898,7 @@ app-ai-chat {
 			position: relative;
 
 			&::after {
-				content: "";
+				content: '';
 				position: absolute;
 				inset: 2px;
 				z-index: -1;
@@ -910,20 +908,19 @@ app-ai-chat {
 			}
 
 			&::before {
-				content: "";
+				content: '';
 				position: absolute;
 				inset: 0 0 0 0;
 				z-index: -1;
 				pointer-events: none;
 				border-radius: 10px;
-				background: linear-gradient(45deg,#217bfe,#078efb .1%,#ac87eb 30%,#ee4d5d);
+				background: linear-gradient(45deg, #217bfe, #078efb 0.1%, #ac87eb 30%, #ee4d5d);
 			}
 
-			
 			.mdc-text-field--outlined .mdc-notched-outline {
 				display: none;
 			}
-			
+
 			.mat-mdc-form-field-infix {
 				padding: 0 !important;
 			}
@@ -940,22 +937,23 @@ app-ai-chat {
 			--mat-icon-color: #232323;
 
 			> .mat-icon {
-				color: transparent !important;  
+				color: transparent !important;
 			}
 
-			&::after, &::before {
+			&::after,
+			&::before {
 				font-family: 'Material Icons';
 				font-family: Fira Sans;
-				content: "";
+				content: '';
 				position: absolute;
 				pointer-events: none;
 				inset: 0px;
-				background: linear-gradient(45deg,#217bfe,#078efb .1%,#ac87eb 30%,#ee4d5d);
+				background: linear-gradient(45deg, #217bfe, #078efb 0.1%, #ac87eb 30%, #ee4d5d);
 				z-index: -1;
 				border-radius: 5px;
 			}
 			&::after {
-				content: "reply";
+				content: 'reply';
 				display: flex;
 				font-size: 1.8em;
 				line-height: 1.8em;
@@ -972,5 +970,34 @@ app-ai-chat {
 	}
 }
 
+// @@ Custom comments tweaks
+.monaco-editor {
+	// [[@custom.anchor.link]]
+	// [[custom.anchor.link]]
+	.ced-1-TextEditorDecorationType71-1 {
+		// @why - so the underline isn't so smushed up against the text
+		// TODO - see if there is a general way to do this for all underlined text
+		text-underline-position: from-font;
+	}
+	// @what - hopefully this will make do for a general solution
+	span[class*='ced-1-TextEditorDecorationType'] {
+		text-underline-position: from-font;
+		text-underline-offset: 0.3em;
+	}
+}
 
+// @@ border fix, just noticed it 09/09/2024
+// @note - no idea if this is from my custom css or a result of it, or unrelated to my shit entirely
+.monaco-split-view2.separator-border
+	> .monaco-scrollable-element
+	> .split-view-container
+	> .split-view-view:not(:first-child)::before {
+	z-index: 101;
+}
 
+// @@ tweaks to keep the find/ctrl+f widget below the sticky widget
+// @note - the sticky widget is what shows the nesting context
+@import 'overlayWidgets.css';
+
+// @@ composer message codeblock line-wrapping
+@import 'cursor-composer-message-codeblock.css';

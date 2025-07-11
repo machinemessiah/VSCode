@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "overlayWidgets.css";
 :root {
 			--bc-padding-tb: 0px;
 			--bc-padding-lr: 5px;
@@ -739,4 +740,47 @@ app-ai-chat chat-input button.submit-button.mdc-icon-button.mat-mdc-icon-button.
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+}
+
+.monaco-editor .ced-1-TextEditorDecorationType71-1 {
+			text-underline-position: from-font;
+}
+.monaco-editor span[class*=ced-1-TextEditorDecorationType] {
+			text-underline-position: from-font;
+			text-underline-offset: 0.3em;
+}
+
+.monaco-split-view2.separator-border > .monaco-scrollable-element > .split-view-container > .split-view-view:not(:first-child)::before {
+			z-index: 101;
+}
+
+.composer-message-codeblock .lines-content.monaco-editor-background {
+			width: 100% !important;
+			max-width: 100% !important;
+			inset: 0 0 0 0 !important;
+}
+.composer-message-codeblock .lines-content.monaco-editor-background .view-lines.monaco-mouse-cursor-text {
+			width: 100% !important;
+			display: flex;
+			flex-wrap: wrap;
+			align-content: flex-start;
+			justify-content: space-evenly;
+			flex-direction: column;
+			align-items: flex-start;
+}
+.composer-message-codeblock .lines-content.monaco-editor-background .view-lines.monaco-mouse-cursor-text .view-line {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			align-content: center;
+			justify-content: flex-start;
+			align-items: center;
+			height: fit-content !important;
+			/* top: unset !important; */
+			/* position: relative; */
+}
+.composer-message-codeblock .lines-content.monaco-editor-background .view-lines.monaco-mouse-cursor-text .view-line > span:not([class]) {
+			display: inline-flex;
+			flex-wrap: wrap;
+			height: fit-content;
 }

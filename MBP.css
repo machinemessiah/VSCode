@@ -388,3 +388,7 @@ div#workbench\.parts\.editor .monaco-grid-branch-node .split-view-container::aft
 	width: 0;
 	height: 0;
 }
+:root {
+	/* ! SINCE SCSS IS LITERALLY LAGGING BEHIND ACTUAL CSS AND CAN'T USE RELATIVE COLORS */
+	--vscode-editorWidget-background-custom: rgb(from var(--vscode-editorWidget-background) calc(r - 15) calc(g - 15) calc(b - 15));
+}
